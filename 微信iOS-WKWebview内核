@@ -35,6 +35,15 @@ JSAPI相关适配
 变化：不再支持通过使用chooseImage api返回的localld以如：”img src=wxLocalResource://50114659201332”的方式预览图片。 
 适配建议：
 1. 在iOS微信6.5.3版本及之后的版本中，使用新增的jsapi：getLocalImgData 拿到LocalID对应的图片base64编码后再在前端页面中显示。
+            wx.getLocalImgData({
+              localId: localId,
+              success: function (res) {
+                  var localData = res.localData;
+                  //ios下，base64文件头中，不是jpg格式文件，需替换
+                  localData = localData.replace('jgp', 'jpeg');
+                 
+              }
+            })
 2. 如果引入了页面有引入JSSDK，则直接将JSSDK升级为1.2.0最新版本即可帮助页面自动适配。（目前JSSDk线上版本是 1.0.0 和 1.1.0，更新版本为1.2.0 ，https://res.wx.qq.com/open/js/jweixin-1.2.0.js  ）
 
 三：有使用JSSDK，并且使用了wx.config进行权限授权需关注jsapi调用的失败问题 
