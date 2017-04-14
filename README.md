@@ -177,7 +177,7 @@ Web前端开发技术栈，大约20个层级，大约100个技术点，从底层
 			- [Pure](http://purecss.io/) [[GitHub]](https://github.com/yahoo/pure/)
 			- [Amaze UI](http://amazeui.org/) [[GitHub]](https://github.com/allmobilize/amazeui)
 			- [Onsne UI](https://onsen.io/) [[GitHub]](https://github.com/OnsenUI/OnsenUI)
-			- [iView UI](http://v1.iviewui.com/docs/guide/install)
+			- [iView UI](http://v1.iviewui.com/docs/guide/install) [[GitHub]](https://github.com/iview/iview)
 		- WebSocket
 			- [Socket.io](http://socket.io/) [[GitHub]](https://github.com/Automattic/socket.io/)
 			- web-socket-js [[GitHub]](https://github.com/gimite/web-socket-js/)
