@@ -17,7 +17,7 @@ let, const, class, extends, super, arrow functions, template string, destructuri
 ## let, const
 这两个的用途与var类似，都是用来声明变量的，但在实际运用中他俩都有各自的特殊用途。
 首先来看下面这个例子：
-`
+```
 var name = 'zach'
 
 while (true) {
@@ -27,9 +27,9 @@ while (true) {
 }
 
 console.log(name)  //obama
-`
+```
 使用var 两次输出都是obama，这是因为ES5只有全局作用域和函数作用域，没有块级作用域，这带来很多不合理的场景。第一种场景就是你现在看到的内层变量覆盖外层变量。而let则实际上为JavaScript新增了块级作用域。用它所声明的变量，只在let命令所在的代码块内有效。
-`
+```
 let name = 'zach'
 
 while (true) {
@@ -39,9 +39,9 @@ while (true) {
 }
 
 console.log(name)  //zach
-`
+```
 另外一个var带来的不合理场景就是用来计数的循环变量泄露为全局变量，看下面的例子：
-`
+```
 var a = [];
 for (var i = 0; i < 10; i++) {
   a[i] = function () {
@@ -49,9 +49,9 @@ for (var i = 0; i < 10; i++) {
   };
 }
 a[6](); // 10
-`
+```
 上面代码中，变量i是var声明的，在全局范围内都有效。所以每一次循环，新的i值都会覆盖旧值，导致最后输出的是最后一轮的i的值。而使用let则不会出现这个问题。
-`
+```
 var a = [];
 for (let i = 0; i < 10; i++) {
   a[i] = function () {
@@ -59,7 +59,7 @@ for (let i = 0; i < 10; i++) {
   };
 }
 a[6](); // 6
-`
+```
 再来看一个更常见的例子，了解下如果不用ES6，而用闭包如何解决这个问题。
 ```
 var clickBoxs = document.querySelectorAll('.clickBox')
@@ -197,9 +197,9 @@ class Animal {
  animal.says('hi')  //animal says hi
 ```
 当我们使用箭头函数时，函数体内的this对象，就是定义时所在的对象，而不是使用时所在的对象。并不是因为箭头函数内部有绑定this的机制，实际原因是箭头函数根本没有自己的this，它的this是继承外面的，因此内部的this就是外层代码块的this。
-`
-template string
-`
+
+## template string
+
 这个东西也是非常有用，当我们要插入大段的html内容到文档中时，传统的写法非常麻烦，所以之前我们通常会引用一些模板工具库，比如mustache等等。
 
 大家可以先看下面一段代码：
@@ -225,9 +225,9 @@ React Router从第1.0.3版开始也使用ES6语法了，比如这个例子：
 ```
 <Link to={`/taco/${taco.name}`}>{taco.name}</Link>
 React Router
-
-destructuring
 ```
+## destructuring
+
 ES6允许按照一定模式，从数组和对象中提取值，对变量进行赋值，这被称为解构（Destructuring）。
 
 看下面的例子：
@@ -249,8 +249,9 @@ console.log(zoo)  //Object {cat: "ken", dog: "lili"}
 let dog = {type: 'animal', many: 2}
 let { type, many} = dog
 console.log(type, many)   //animal 2
-default, rest
 ```
+## default, rest
+
 default很简单，意思就是默认值。大家可以看下面的例子，调用animal()方法时忘了传参数，传统的做法就是加上这一句type = type || 'cat' 来指定默认值。
 ```
 function animal(type){
@@ -275,5 +276,5 @@ animals('cat', 'dog', 'fish') //["cat", "dog", "fish"]
 ```
 而如果不用ES6的话，我们则得使用ES5的arguments。
 
-总结
+## 总结
 以上就是ES6最常用的一些语法，可以说这20%的语法，在ES6的日常使用中占了80%...
