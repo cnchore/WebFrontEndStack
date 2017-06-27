@@ -52,7 +52,7 @@ fi
 ```
 ./test.sh
 ```
-* 如果提示permission denied，执行如下命令后，再次执行shell脚本
+> 如果提示permission denied，执行如下命令后，再次执行shell脚本
 ```
 chmod +x  *.sh
 ```
@@ -64,4 +64,4 @@ git push --force --tags origin 'refs/heads/*
 
 6. 最后把这个临时down下来的repo目录删掉就行，一切大功告成
 
-再去看的你的github首页，丢失的绿格子都回来了。
+>再去看的你的github首页，丢失的绿格子都回来了。
